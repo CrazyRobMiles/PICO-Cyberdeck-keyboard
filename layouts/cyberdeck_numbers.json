@@ -1,0 +1,1073 @@
+{
+  "format": "pico-cyberdeck-keyboard",
+  "version": 1,
+  "name": "cyberdeck_numbers",
+  "units": "mm",
+  "switch": {
+    "type": "PTS645",
+    "height": 5.0,
+    "force": "M"
+  },
+  "grid": {
+    "pitch_x": 12.0,
+    "pitch_y": 12.0,
+    "snap": 0.5
+  },
+  "keys": [
+    {
+      "id": "K1",
+      "label": "Esc",
+      "keycode": "ESCAPE",
+      "x": 6.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "GRAVE_ACCENT",
+      "row": 0,
+      "col": 0
+    },
+    {
+      "id": "K2",
+      "label": "1",
+      "keycode": "ONE",
+      "x": 18.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "F1",
+      "row": 0,
+      "col": 1
+    },
+    {
+      "id": "K3",
+      "label": "2",
+      "keycode": "TWO",
+      "x": 30.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "F2",
+      "row": 0,
+      "col": 2
+    },
+    {
+      "id": "K4",
+      "label": "3",
+      "keycode": "THREE",
+      "x": 42.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "F3",
+      "row": 0,
+      "col": 3
+    },
+    {
+      "id": "K5",
+      "label": "4",
+      "keycode": "FOUR",
+      "x": 54.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "F4",
+      "row": 0,
+      "col": 4
+    },
+    {
+      "id": "K6",
+      "label": "5",
+      "keycode": "FIVE",
+      "x": 66.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "F5",
+      "row": 0,
+      "col": 5
+    },
+    {
+      "id": "K7",
+      "label": "6",
+      "keycode": "SIX",
+      "x": 78.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "F6",
+      "row": 0,
+      "col": 6
+    },
+    {
+      "id": "K8",
+      "label": "7",
+      "keycode": "SEVEN",
+      "x": 90.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "F7",
+      "row": 0,
+      "col": 7
+    },
+    {
+      "id": "K9",
+      "label": "8",
+      "keycode": "EIGHT",
+      "x": 102.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "F8",
+      "row": 0,
+      "col": 8
+    },
+    {
+      "id": "K10",
+      "label": "9",
+      "keycode": "NINE",
+      "x": 114.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "F9",
+      "row": 0,
+      "col": 9
+    },
+    {
+      "id": "K11",
+      "label": "0",
+      "keycode": "ZERO",
+      "x": 126.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "F10",
+      "row": 0,
+      "col": 10
+    },
+    {
+      "id": "K12",
+      "label": "-",
+      "keycode": "MINUS",
+      "x": 138.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "F11",
+      "row": 0,
+      "col": 11
+    },
+    {
+      "id": "K13",
+      "label": "=",
+      "keycode": "EQUALS",
+      "x": 150.0,
+      "y": 6.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "F12",
+      "row": 0,
+      "col": 12
+    },
+    {
+      "id": "K14",
+      "label": "Tab",
+      "keycode": "TAB",
+      "x": 9.0,
+      "y": 18.0,
+      "w": 1.5,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 1,
+      "col": 0
+    },
+    {
+      "id": "K15",
+      "label": "Q",
+      "keycode": "Q",
+      "x": 24.0,
+      "y": 18.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 1,
+      "col": 2
+    },
+    {
+      "id": "K16",
+      "label": "W",
+      "keycode": "W",
+      "x": 36.0,
+      "y": 18.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 1,
+      "col": 3
+    },
+    {
+      "id": "K17",
+      "label": "E",
+      "keycode": "E",
+      "x": 48.0,
+      "y": 18.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 1,
+      "col": 4
+    },
+    {
+      "id": "K18",
+      "label": "R",
+      "keycode": "R",
+      "x": 60.0,
+      "y": 18.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 1,
+      "col": 5
+    },
+    {
+      "id": "K19",
+      "label": "T",
+      "keycode": "T",
+      "x": 72.0,
+      "y": 18.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 1,
+      "col": 6
+    },
+    {
+      "id": "K20",
+      "label": "Y",
+      "keycode": "Y",
+      "x": 84.0,
+      "y": 18.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 1,
+      "col": 7
+    },
+    {
+      "id": "K21",
+      "label": "U",
+      "keycode": "U",
+      "x": 96.0,
+      "y": 18.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 1,
+      "col": 8
+    },
+    {
+      "id": "K22",
+      "label": "I",
+      "keycode": "I",
+      "x": 108.0,
+      "y": 18.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 1,
+      "col": 9
+    },
+    {
+      "id": "K23",
+      "label": "O",
+      "keycode": "O",
+      "x": 120.0,
+      "y": 18.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "LEFT_BRACKET",
+      "row": 1,
+      "col": 10
+    },
+    {
+      "id": "K24",
+      "label": "P",
+      "keycode": "P",
+      "x": 132.0,
+      "y": 18.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "RIGHT_BRACKET",
+      "row": 1,
+      "col": 11
+    },
+    {
+      "id": "K25",
+      "label": "Bksp",
+      "keycode": "BACKSPACE",
+      "x": 147.0,
+      "y": 18.0,
+      "w": 1.5,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "DELETE",
+      "row": 1,
+      "col": 12
+    },
+    {
+      "id": "K26",
+      "label": "Caps",
+      "keycode": "CAPS_LOCK",
+      "x": 10.5,
+      "y": 30.0,
+      "w": 1.75,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 2,
+      "col": 0
+    },
+    {
+      "id": "K27",
+      "label": "A",
+      "keycode": "A",
+      "x": 27.0,
+      "y": 30.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 2,
+      "col": 2
+    },
+    {
+      "id": "K28",
+      "label": "S",
+      "keycode": "S",
+      "x": 39.0,
+      "y": 30.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 2,
+      "col": 3
+    },
+    {
+      "id": "K29",
+      "label": "D",
+      "keycode": "D",
+      "x": 51.0,
+      "y": 30.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 2,
+      "col": 4
+    },
+    {
+      "id": "K30",
+      "label": "F",
+      "keycode": "F",
+      "x": 63.0,
+      "y": 30.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 2,
+      "col": 5
+    },
+    {
+      "id": "K31",
+      "label": "G",
+      "keycode": "G",
+      "x": 75.0,
+      "y": 30.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 2,
+      "col": 6
+    },
+    {
+      "id": "K32",
+      "label": "H",
+      "keycode": "H",
+      "x": 87.0,
+      "y": 30.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 2,
+      "col": 7
+    },
+    {
+      "id": "K33",
+      "label": "J",
+      "keycode": "J",
+      "x": 99.0,
+      "y": 30.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 2,
+      "col": 8
+    },
+    {
+      "id": "K34",
+      "label": "K",
+      "keycode": "K",
+      "x": 111.0,
+      "y": 30.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 2,
+      "col": 9
+    },
+    {
+      "id": "K35",
+      "label": "L",
+      "keycode": "L",
+      "x": 123.0,
+      "y": 30.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "BACKSLASH",
+      "row": 2,
+      "col": 10
+    },
+    {
+      "id": "K36",
+      "label": ";",
+      "keycode": "SEMICOLON",
+      "x": 135.0,
+      "y": 30.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "QUOTE",
+      "row": 2,
+      "col": 11
+    },
+    {
+      "id": "K37",
+      "label": "Ent",
+      "keycode": "ENTER",
+      "x": 148.5,
+      "y": 30.0,
+      "w": 1.25,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 2,
+      "col": 12
+    },
+    {
+      "id": "K38",
+      "label": "Shift",
+      "keycode": "LEFT_SHIFT",
+      "x": 13.5,
+      "y": 42.0,
+      "w": 2.25,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 3,
+      "col": 1
+    },
+    {
+      "id": "K39",
+      "label": "Z",
+      "keycode": "Z",
+      "x": 33.0,
+      "y": 42.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 3,
+      "col": 2
+    },
+    {
+      "id": "K40",
+      "label": "X",
+      "keycode": "X",
+      "x": 45.0,
+      "y": 42.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 3,
+      "col": 3
+    },
+    {
+      "id": "K41",
+      "label": "C",
+      "keycode": "C",
+      "x": 57.0,
+      "y": 42.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 3,
+      "col": 4
+    },
+    {
+      "id": "K42",
+      "label": "V",
+      "keycode": "V",
+      "x": 69.0,
+      "y": 42.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 3,
+      "col": 5
+    },
+    {
+      "id": "K43",
+      "label": "B",
+      "keycode": "B",
+      "x": 81.0,
+      "y": 42.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 3,
+      "col": 6
+    },
+    {
+      "id": "K44",
+      "label": "N",
+      "keycode": "N",
+      "x": 93.0,
+      "y": 42.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 3,
+      "col": 7
+    },
+    {
+      "id": "K45",
+      "label": "M",
+      "keycode": "M",
+      "x": 105.0,
+      "y": 42.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 3,
+      "col": 8
+    },
+    {
+      "id": "K46",
+      "label": ",",
+      "keycode": "COMMA",
+      "x": 117.0,
+      "y": 42.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 3,
+      "col": 9
+    },
+    {
+      "id": "K47",
+      "label": ".",
+      "keycode": "PERIOD",
+      "x": 129.0,
+      "y": 42.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "FORWARD_SLASH",
+      "row": 3,
+      "col": 10
+    },
+    {
+      "id": "K48",
+      "label": "Shift",
+      "keycode": "RIGHT_SHIFT",
+      "x": 145.5,
+      "y": 42.0,
+      "w": 1.75,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 3,
+      "col": 12
+    },
+    {
+      "id": "K49",
+      "label": "Ctrl",
+      "keycode": "LEFT_CONTROL",
+      "x": 9.0,
+      "y": 54.0,
+      "w": 1.5,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 4,
+      "col": 0
+    },
+    {
+      "id": "K50",
+      "label": "Gui",
+      "keycode": "LEFT_GUI",
+      "x": 25.5,
+      "y": 54.0,
+      "w": 1.25,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 4,
+      "col": 2
+    },
+    {
+      "id": "K51",
+      "label": "Alt",
+      "keycode": "LEFT_ALT",
+      "x": 40.5,
+      "y": 54.0,
+      "w": 1.25,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 4,
+      "col": 3
+    },
+    {
+      "id": "K52",
+      "label": "Space",
+      "keycode": "SPACE",
+      "x": 72.0,
+      "y": 54.0,
+      "w": 4.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 4,
+      "col": 6
+    },
+    {
+      "id": "K53",
+      "label": "Fn",
+      "keycode": "FN",
+      "x": 102.0,
+      "y": 54.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "",
+      "row": 4,
+      "col": 8
+    },
+    {
+      "id": "K54",
+      "label": "<",
+      "keycode": "LEFT_ARROW",
+      "x": 114.0,
+      "y": 54.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "HOME",
+      "row": 4,
+      "col": 9
+    },
+    {
+      "id": "K55",
+      "label": "v",
+      "keycode": "V",
+      "x": 126.0,
+      "y": 54.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "PAGE_DOWN",
+      "row": 4,
+      "col": 10
+    },
+    {
+      "id": "K56",
+      "label": "^",
+      "keycode": "UP_ARROW",
+      "x": 138.0,
+      "y": 54.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "PAGE_UP",
+      "row": 4,
+      "col": 11
+    },
+    {
+      "id": "K57",
+      "label": ">",
+      "keycode": "RIGHT_ARROW",
+      "x": 150.0,
+      "y": 54.0,
+      "w": 1.0,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "fn_keycode": "END",
+      "row": 4,
+      "col": 12
+    }
+  ],
+  "board": {
+    "auto_size": true,
+    "margin": {
+      "top": 6.0,
+      "right": 3.0,
+      "bottom": 6.0,
+      "left": 3.0
+    },
+    "x": 0.0,
+    "y": 0.0,
+    "width": 100.0,
+    "height": 50.0,
+    "corner_radius": 2.0,
+    "thickness": 1.6,
+    "mounting_holes": [
+      {
+        "x": 23.4,
+        "y": -3.0,
+        "d": 2.2
+      },
+      {
+        "x": 132.6,
+        "y": -3.0,
+        "d": 2.2
+      },
+      {
+        "x": 18.0,
+        "y": 63.0,
+        "d": 2.2
+      },
+      {
+        "x": 144.0,
+        "y": 63.0,
+        "d": 2.2
+      }
+    ]
+  },
+  "controller": {
+    "type": "pico",
+    "side": "back",
+    "x": 78.0,
+    "y": 19.5,
+    "rotation": 0
+  },
+  "matrix": {
+    "diodes": true,
+    "auto": true,
+    "reserved_pins": [],
+    "row_pins": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "col_pins": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  "routing": {
+    "enabled": true,
+    "grid": 0.5,
+    "track_width": 0.25,
+    "clearance": 0.2,
+    "edge_clearance": 0.5,
+    "via_diameter": 0.6,
+    "via_drill": 0.3,
+    "via_cost": 8,
+    "wrong_way_cost": 3
+  },
+  "mock_pcb": {
+    "fence_height": 2.5,
+    "fence_wall": 0.8,
+    "body_clearance": 0.15,
+    "grip": 0.0,
+    "lead_in": 0.4
+  },
+  "firmware": {
+    "debounce_scans": 2
+  },
+  "case": {
+    "max_width": 170.0,
+    "wall": 2.0,
+    "floor": 1.5,
+    "clearance": 0.5,
+    "back_clearance": 5.0,
+    "plate_thickness": 1.5,
+    "key_gap": 1.6,
+    "key_clearance": 0.35,
+    "key_protrusion": 2.0,
+    "flange": 0.9,
+    "flange_angle": 45.0,
+    "flange_thickness": 1.0,
+    "flange_clearance": 0.3,
+    "plunger_gap": 1.0,
+    "corner_radius": 3.0,
+    "hole_diameter": 2.2,
+    "standoff_diameter": 5.0,
+    "screw_pilot": 1.8,
+    "ledge": 1.5,
+    "legend": "inlay",
+    "legend_depth": 0.6,
+    "font": "C:/Windows/Fonts/arialbd.ttf"
+  },
+  "derived": {
+    "board_rect": [
+      -3.0,
+      -6.0,
+      162.0,
+      72.0
+    ],
+    "case_size": [
+      167.0,
+      77.0,
+      16.9
+    ],
+    "stack": {
+      "case_bottom": -6.5,
+      "floor_top": -5.0,
+      "pcb_bottom": 0.0,
+      "pcb_top": 1.6,
+      "switch_body_top": 5.1,
+      "plunger_top": 6.6,
+      "cap_bottom": 6.6,
+      "flange_top": 7.6,
+      "shoulder_top": 8.5,
+      "plate_bottom": 8.9,
+      "plate_top": 10.4,
+      "cap_top": 12.4
+    }
+  }
+}

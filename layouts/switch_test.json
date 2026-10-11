@@ -1,0 +1,246 @@
+{
+  "format": "pico-cyberdeck-keyboard",
+  "version": 1,
+  "name": "switch_test",
+  "units": "mm",
+  "switch": {
+    "type": "PTS645",
+    "height": 5.0,
+    "force": "M"
+  },
+  "grid": {
+    "pitch_x": 12.0,
+    "pitch_y": 12.0,
+    "snap": 0.5
+  },
+  "keys": [
+    {
+      "id": "K1",
+      "label": "1u",
+      "keycode": "A",
+      "x": 6.0,
+      "y": 6.0,
+      "w": 1,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "row": 0,
+      "col": 0,
+      "fn_keycode": ""
+    },
+    {
+      "id": "K2",
+      "label": "1.5u",
+      "keycode": "B",
+      "x": 21.0,
+      "y": 6.0,
+      "w": 1.5,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "row": 0,
+      "col": 1,
+      "fn_keycode": ""
+    },
+    {
+      "id": "K3",
+      "label": "2u",
+      "keycode": "C",
+      "x": 42.0,
+      "y": 6.0,
+      "w": 2,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "row": 0,
+      "col": 2,
+      "fn_keycode": ""
+    },
+    {
+      "id": "K4",
+      "label": "2.25u",
+      "keycode": "D",
+      "x": 67.5,
+      "y": 6.0,
+      "w": 2.25,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "row": 0,
+      "col": 4,
+      "fn_keycode": ""
+    },
+    {
+      "id": "K5",
+      "label": "2.75u",
+      "keycode": "E",
+      "x": 16.5,
+      "y": 18.0,
+      "w": 2.75,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "row": 1,
+      "col": 1,
+      "fn_keycode": ""
+    },
+    {
+      "id": "K6",
+      "label": "4u",
+      "keycode": "F",
+      "x": 57.0,
+      "y": 18.0,
+      "w": 4,
+      "h": 1.0,
+      "rotation": 0,
+      "switches": [
+        0.0
+      ],
+      "row": 1,
+      "col": 3,
+      "fn_keycode": ""
+    }
+  ],
+  "board": {
+    "auto_size": true,
+    "margin": {
+      "top": 6.0,
+      "right": 3.0,
+      "bottom": 6.0,
+      "left": 3.0
+    },
+    "x": 0.0,
+    "y": 0.0,
+    "width": 100.0,
+    "height": 50.0,
+    "corner_radius": 2.0,
+    "thickness": 1.6,
+    "mounting_holes": [
+      {
+        "x": 12.15,
+        "y": -3.0,
+        "d": 2.2
+      },
+      {
+        "x": 68.85,
+        "y": -3.0,
+        "d": 2.2
+      },
+      {
+        "x": 6.0,
+        "y": 27.0,
+        "d": 2.2
+      },
+      {
+        "x": 75.0,
+        "y": 27.0,
+        "d": 2.2
+      }
+    ]
+  },
+  "controller": {
+    "type": "pico",
+    "side": "back",
+    "x": 58.5,
+    "y": 12.0,
+    "rotation": 270
+  },
+  "matrix": {
+    "diodes": true,
+    "auto": true,
+    "reserved_pins": [],
+    "row_pins": [
+      0,
+      1
+    ],
+    "col_pins": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "routing": {
+    "enabled": true,
+    "grid": 0.5,
+    "track_width": 0.25,
+    "clearance": 0.2,
+    "edge_clearance": 0.5,
+    "via_diameter": 0.6,
+    "via_drill": 0.3,
+    "via_cost": 8,
+    "wrong_way_cost": 3
+  },
+  "mock_pcb": {
+    "fence_height": 2.5,
+    "fence_wall": 0.8,
+    "body_clearance": 0.15,
+    "grip": 0.0,
+    "lead_in": 0.4
+  },
+  "firmware": {
+    "debounce_scans": 2
+  },
+  "case": {
+    "max_width": 170.0,
+    "wall": 2.0,
+    "floor": 1.5,
+    "clearance": 0.5,
+    "back_clearance": 5.0,
+    "plate_thickness": 1.5,
+    "key_gap": 1.6,
+    "key_clearance": 0.35,
+    "key_protrusion": 2.0,
+    "flange": 0.9,
+    "flange_angle": 45.0,
+    "flange_thickness": 1.0,
+    "flange_clearance": 0.3,
+    "plunger_gap": 1.0,
+    "corner_radius": 3.0,
+    "hole_diameter": 2.2,
+    "standoff_diameter": 5.0,
+    "screw_pilot": 1.8,
+    "ledge": 1.5,
+    "legend": "inlay",
+    "legend_depth": 0.6,
+    "font": "C:/Windows/Fonts/arialbd.ttf"
+  },
+  "derived": {
+    "board_rect": [
+      -3.0,
+      -6.0,
+      87.0,
+      36.0
+    ],
+    "case_size": [
+      92.0,
+      41.0,
+      16.9
+    ],
+    "stack": {
+      "case_bottom": -6.5,
+      "floor_top": -5.0,
+      "pcb_bottom": 0.0,
+      "pcb_top": 1.6,
+      "switch_body_top": 5.1,
+      "plunger_top": 6.6,
+      "cap_bottom": 6.6,
+      "flange_top": 7.6,
+      "shoulder_top": 8.5,
+      "plate_bottom": 8.9,
+      "plate_top": 10.4,
+      "cap_top": 12.4
+    }
+  }
+}
