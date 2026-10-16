@@ -5,16 +5,26 @@ This does the same job as the CircuitPython firmware (firmware/code.py) and
 reads the same layout JSON, so the wiring and key codes always match the PCB.
 
 It needs MicroPython 1.23 or later, which can act as a USB device, plus the
-usb-device-keyboard package from micropython-lib. To install:
+USB keyboard driver from micropython-lib (the usb-device-keyboard package:
+four files in /lib/usb/device/ on the Pico). The Pico needs:
 
-1. Put MicroPython (1.23 or later) on the Pico.
-2. Install the keyboard driver:
-       mpremote mip install usb-device-keyboard
-3. Copy this file and your layout to the Pico:
-       mpremote cp firmware/micropython/main.py :main.py
-       mpremote cp layouts/switch_test.json :layout.json
-4. Reset the Pico. It becomes a USB keyboard, and keeps its USB serial port
-   so that mpremote and Thonny can still connect (press Ctrl-C to stop it).
+    /main.py                        this file
+    /layout.json                    your layout file from layouts/, renamed
+    /lib/usb/device/__init__.py     } from micropython-lib, micropython/usb/:
+    /lib/usb/device/core.py         }   usb-device/usb/device/
+    /lib/usb/device/hid.py          }   usb-device-hid/usb/device/
+    /lib/usb/device/keyboard.py     }   usb-device-keyboard/usb/device/
+
+The README ("Installing the MicroPython firmware") explains how to copy
+them by hand with Thonny, or with mpremote:
+
+    mpremote mip install usb-device-keyboard
+    mpremote cp firmware/micropython/main.py :main.py
+    mpremote cp layouts/numpad.json :layout.json
+
+Then reset the Pico. It becomes a USB keyboard, and keeps its USB serial
+port so that Thonny and mpremote can still connect (press Stop, or Ctrl-C,
+to stop it).
 
 Keycodes in the layout are the adafruit_hid Keycode names used by the
 designer, translated here into HID codes. A key with the keycode FN is a
@@ -30,16 +40,26 @@ debounce_scans scans in a row. The layout's "firmware" section sets it:
 
 Keys with more than one switch need nothing special here: their switches are
 wired in parallel, so the key is down for as long as any of them is closed.
+
+Debugging
+---------
+Set DEBUG = True (below) to test the keys without the Pico being a keyboard.
+It does not start the USB keyboard at all: it scans the keys and prints, in
+Thonny's Shell, each key's legend, row and column as it goes down and up,
+then every key that is down and what a keyboard would send, by name. A
+press at a matrix position with no key on it is shown too. Run it from
+Thonny with the green Run button, and press Stop to end it.
 """
 
 import json
 import time
 
-import usb.device
 from machine import Pin
-from usb.device.keyboard import KeyboardInterface
 
 SCAN_MS = 5
+
+# True: print the keys as they are pressed, instead of being a USB keyboard
+DEBUG = False
 
 # HID usage codes for the adafruit_hid Keycode names used in the layout.
 # Modifiers are negative, as usb.device.keyboard expects.
@@ -132,22 +152,59 @@ class KeyHandler:
         return [code for code in self.down.values() if code is not None]
 
 
+def debug(matrix, handler, labels, columns):
+    """Print the keys as they go down and up, without being a USB keyboard."""
+    names = {}
+    for name, code in HID_CODES.items():
+        names.setdefault(code, name)
+
+    def describe(number):
+        row, col = divmod(number, columns)
+        label = labels.get(number, "(no key here)")
+        return "%s (row %d, col %d)" % (label, row, col)
+
+    print("Key test: press keys to see them. Not a USB keyboard. Press Stop to end.")
+    while True:
+        changes = matrix.scan()
+        for number, is_pressed in changes:
+            if is_pressed:
+                handler.pressed(number)
+            else:
+                handler.released(number)
+            print("%-5s %s" % ("down" if is_pressed else "up", describe(number)))
+        if changes:
+            down = [describe(n) for n in range(len(matrix.state)) if matrix.state[n]]
+            print("      keys down: %s" % (", ".join(down) or "none"))
+            sending = [names.get(c, hex(c)) for c in handler.down_codes()]
+            fn = " (Fn held)" if handler.fn_held else ""
+            print("      would send: %s%s" % (", ".join(sending) or "nothing", fn))
+        time.sleep_ms(SCAN_MS)
+
+
 def main():
-    with open("/layout.json") as f:
+    with open("/cyberdeck_numbers.json") as f:
         layout = json.load(f)
 
     matrix_info = layout["matrix"]
     columns = len(matrix_info["col_pins"])
     keymap = {}
+    labels = {}
     for key in layout["keys"]:
         number = key["row"] * columns + key["col"]
         keymap[number] = (keycode(key.get("keycode")), keycode(key.get("fn_keycode")),
                           key.get("keycode") == "FN")
+        labels[number] = key.get("label") or key["id"]
     debounce_scans = layout.get("firmware", {}).get("debounce_scans", 2)
     matrix = Matrix(matrix_info["row_pins"], matrix_info["col_pins"], debounce_scans)
     handler = KeyHandler(keymap)
     del layout
 
+    if DEBUG:
+        debug(matrix, handler, labels, columns)
+        return
+
+    import usb.device
+    from usb.device.keyboard import KeyboardInterface
     keyboard = KeyboardInterface()
     # builtin_driver keeps the USB serial port, so the REPL still works
     usb.device.get().init(keyboard, builtin_driver=True)

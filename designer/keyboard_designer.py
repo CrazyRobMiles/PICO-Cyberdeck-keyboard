@@ -228,6 +228,7 @@ class Designer(tk.Tk):
         f.add_command(label="New from example (staggered)", command=self.new_staggered_example)
         f.add_command(label="New from example (staggered with number row)", command=self.new_numbers_example)
         f.add_command(label="New switch test keyboard", command=self.new_switch_test)
+        f.add_command(label="New numeric keypad", command=self.new_numpad)
         f.add_command(label="Open...", command=self.open_dialog, accelerator="Ctrl+O")
         f.add_command(label="Save", command=self.save, accelerator="Ctrl+S")
         f.add_command(label="Save as...", command=self.save_as)
@@ -439,6 +440,7 @@ class Designer(tk.Tk):
             ("Gap above switches", ("case", "plunger_gap"), float),
             ("Mock PCB fence height", ("mock_pcb", "fence_height"), float),
             ("Mock PCB grip", ("mock_pcb", "grip"), float),
+            ("On top pillar height", ("pillars", "on_top_height"), float),
             ("Edge ledge/rib", ("case", "ledge"), float),
             ("Legends", ("case", "legend"), ("inlay", "engrave", "none")),
             ("Legend depth", ("case", "legend_depth"), float),
@@ -508,6 +510,9 @@ class Designer(tk.Tk):
 
     def new_example(self):
         self.set_layout(kl.example_layout(), None)
+
+    def new_numpad(self):
+        self.set_layout(kl.numpad_layout(), None)
 
     def new_switch_test(self):
         self.set_layout(kl.switch_test_layout(), None)

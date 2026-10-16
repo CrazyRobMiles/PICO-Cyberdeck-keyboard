@@ -36,6 +36,21 @@ The parts that are made (and exported as STL to output/<name>/):
                leg so that wires can be soldered on to try the switches. The
                fences lean in at the top to grip the switches (mock_pcb in
                the layout sets how much).
+- Cutout.stl   not printed: the plate's key holes as solids, for cutting the
+               same holes in a panel of another case (a cyberdeck, say) with
+               the PCB mounted behind it. They are where the plate's holes
+               are (the plate's underside is plate_bottom above the bottom of
+               the PCB) and reach 1mm past both faces of the plate.
+- PillarsOnTop.stl
+               a pillar over each mounting hole, pillars.on_top_height high,
+               for fixing the PCB (or mock PCB) on top of a plate. They are
+               under the PCB, in the same place as it and the mock PCB.
+- PillarsUnderneath.stl
+               a pillar over each mounting hole for fixing the PCB under a
+               panel cut with Cutout.stl. They stand on the PCB and reach to
+               where the keyboard's own plate would be, so the keytops fit,
+               in the same place as the PCB, mock PCB, plate and cutout. Both sets have a pilot hole right through for M2 self
+               tapping screws.
 - SwitchGripTest.stl
                a small plate with six switch fences, each gripping by a
                different amount (labelled in mm), for finding the grip that
@@ -172,9 +187,32 @@ class CaseBuilder:
         tray = tray.cut(self.usb_cutout(usb_z))
         return tray.removeSplitter()
 
+    def outline_grow(self):
+        """How far the outside of the case is from the edge of the PCB."""
+        return self.case["clearance"] + self.case["wall"]
+
+    def key_hole_cutters(self, z_from, z_to):
+        """The shapes that cut the key holes in the plate, between z_from and
+        z_to. Each hole is the shape of its keytop, key_clearance bigger all
+        round, so the lower part of the hole slopes like the keytop's
+        shoulder, which seats against it."""
+        c = self.case
+        slab = Part.makeBox(10000, 10000, z_to - z_from, Vector(-5000, -5000, z_from))
+        return [self.key_profile(key, c["key_clearance"], z_to + 1, c["plunger_gap"]).common(slab)
+                for key in self.layout["keys"]]
+
+    def cutout(self):
+        """The key holes of the plate, as solids, for cutting the same holes
+        in a panel of another case (a cyberdeck, say), with the keyboard's
+        PCB mounted behind it. The panel then does the plate's job. They are
+        where the plate's holes are, and reach 1mm past the top and bottom
+        of the plate so that they cut cleanly through a panel as thick as it."""
+        z = self.z
+        return Part.makeCompound(self.key_hole_cutters(z["plate_bottom"] - 1, z["plate_top"] + 1))
+
     def plate(self):
         c, z = self.case, self.z
-        wall_out = c["clearance"] + c["wall"]
+        wall_out = self.outline_grow()
         plate = self.board_box(wall_out, z["plate_bottom"], z["plate_top"])
         # rib that fits inside the tray walls and presses on the edge of the PCB
         rib = self.board_box(c["clearance"] - 0.2, z["pcb_top"], z["plate_bottom"] + 0.01)
@@ -185,13 +223,7 @@ class CaseBuilder:
         for hole in self.layout["board"]["mounting_holes"]:
             plate = plate.fuse(self.cylinder(hole["x"], hole["y"], c["standoff_diameter"],
                                              z["pcb_top"], z["plate_bottom"] + 0.01))
-        # Each hole is the shape of its keytop, key_clearance bigger all
-        # round, so the lower part of the hole slopes like the keytop's
-        # shoulder, which seats against it.
-        slab = Part.makeBox(10000, 10000, z["plate_top"] + 2 - z["plate_bottom"],
-                            Vector(-5000, -5000, z["plate_bottom"] - 0.01))
-        holes = [self.key_profile(key, c["key_clearance"], z["plate_top"] + 1, c["plunger_gap"]).common(slab)
-                 for key in self.layout["keys"]]
+        holes = self.key_hole_cutters(z["plate_bottom"] - 0.01, z["plate_top"] + 1)
         if holes:
             plate = plate.cut(Part.makeCompound(holes))
         for hole in self.layout["board"]["mounting_holes"]:
@@ -420,6 +452,25 @@ class CaseBuilder:
                                                Vector(x0, y0, z_base - 0.5)))
         return fence.removeSplitter()
 
+    def pillar_lengths(self):
+        """(on top, underneath): the heights of the two sets of pillars."""
+        z = self.z
+        return self.layout["pillars"]["on_top_height"], z["plate_bottom"] - z["pcb_top"]
+
+    def pillars(self, z0, z1):
+        """A pillar over each of the PCB's mounting holes, from z0 to z1, in
+        the same place as the PCB (and mock PCB), plate and cutout so they all
+        line up. They are tubes as wide as the standoffs, with a pilot hole
+        right through for M2 self tapping screws from either end, and print
+        standing up as they are."""
+        d = self.case["standoff_diameter"]
+        pilot = self.layout["pillars"]["pilot_hole"]
+        out = []
+        for hole in self.layout["board"]["mounting_holes"]:
+            tube = self.cylinder(hole["x"], hole["y"], d, z0, z1)
+            out.append(tube.cut(self.cylinder(hole["x"], hole["y"], pilot, z0 - 1, z1 + 1)))
+        return Part.makeCompound(out)
+
     def grip_test_plate(self):
         """A small plate with a fence for each grip amount in GRIP_TEST_VALUES,
         labelled with the amount, for finding the grip that holds a switch
@@ -520,10 +571,24 @@ def build(layout_path):
     plate_print.translate(Vector(0, 0, -plate_print.BoundBox.ZMin))
     plate_print_obj = add_part(doc, "PlateForPrinting", plate_print, visible=False)
     Mesh.export([plate_print_obj], os.path.join(out_dir, "Plate.stl"))
+    # Not printed: subtract it from a panel of another case to give it the
+    # plate's key holes. It is in the same place as the plate's holes.
+    cutout_obj = add_part(doc, "Cutout", b.cutout(), (0.9, 0.3, 0.3), visible=False)
+    Mesh.export([cutout_obj], os.path.join(out_dir, "Cutout.stl"))
     Mesh.export([print_obj], os.path.join(out_dir, "Keycaps.stl"))
     Mesh.export([mock_print_obj], os.path.join(out_dir, "MockPCB.stl"))
     grip_obj = add_part(doc, "SwitchGripTest", b.grip_test_plate(), visible=False)
     Mesh.export([grip_obj], os.path.join(out_dir, "SwitchGripTest.stl"))
+    on_top, underneath = b.pillar_lengths()
+    z = b.z
+    # under the PCB, standing on a plate; and on top of the PCB, up to a panel
+    on_top_obj = add_part(doc, "PillarsOnTop", b.pillars(z["pcb_bottom"] - on_top, z["pcb_bottom"]),
+                          (0.9, 0.6, 0.2), visible=False)
+    underneath_obj = add_part(doc, "PillarsUnderneath", b.pillars(z["pcb_top"], z["plate_bottom"]),
+                              (0.9, 0.6, 0.2), visible=False)
+    Mesh.export([on_top_obj], os.path.join(out_dir, "PillarsOnTop.stl"))
+    Mesh.export([underneath_obj], os.path.join(out_dir, "PillarsUnderneath.stl"))
+    print("Pillars: on top %.1fmm, underneath %.1fmm" % (on_top, underneath))
     legends_path = os.path.join(out_dir, "KeycapLegends.stl")
     if have_letters:
         Mesh.export([letters_obj], legends_path)
@@ -534,7 +599,8 @@ def build(layout_path):
     # Record how much plastic each print needs, for the parts list
     volumes = {"Tray.stl": tray.Shape.Volume, "Plate.stl": plate.Shape.Volume,
                "Keycaps.stl": print_obj.Shape.Volume, "MockPCB.stl": mock_print_obj.Shape.Volume,
-               "SwitchGripTest.stl": grip_obj.Shape.Volume}
+               "SwitchGripTest.stl": grip_obj.Shape.Volume,
+               "PillarsOnTop.stl": on_top_obj.Shape.Volume, "PillarsUnderneath.stl": underneath_obj.Shape.Volume}
     if have_letters:
         volumes["KeycapLegends.stl"] = letters_obj.Shape.Volume
     with open(os.path.join(out_dir, "prints.json"), "w", encoding="utf-8") as f:

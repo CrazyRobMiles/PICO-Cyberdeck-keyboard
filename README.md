@@ -22,6 +22,11 @@ which holds the layout format, the defaults, the hardware dimensions, and the
 geometry and validation code. The designer, the PCB and the case therefore all
 agree about where everything is.
 
+The whole design was developed in a conversation with Claude (Claude Code),
+recorded in [docs/development-conversation.md](docs/development-conversation.md):
+every request, the replies, and the actions taken, from the first idea to the
+finished keyboards.
+
 ## Workflow
 
 1. **Design the layout**
@@ -68,31 +73,163 @@ agree about where everything is.
    ```
 
    This writes `Tray.stl`, `Plate.stl`, `Keycaps.stl`, `KeycapLegends.stl`,
-   `MockPCB.stl` (see [Trying out long keys](#trying-out-long-keys))
-   and a `.FCStd` model
+   `MockPCB.stl` (see [Trying out long keys](#trying-out-long-keys)),
+   `Cutout.stl` (see below) and a `.FCStd` model
    (with reference PCB, switches and Pico) to `output\<name>\`.
+
+   **Fitting the keyboard into another case.** You can leave out the tray
+   and plate and build the keyboard into a cyberdeck's own case:
+
+   * `Cutout.stl` is not for printing. It is the plate's key holes as
+     solids, one per key, for cutting the same holes in a panel of your
+     case. That panel then does the plate's job: the keytops sit in its holes
+     and their lips hold them in. Make the panel 1.5mm thick, like the plate
+     (or set `case.plate_thickness` to your panel's thickness and build
+     again). Line the cutters up so that their top is 1mm above your panel's
+     top face (their bottom is then 0.3mm below its underside), and subtract
+     them. They are in the
+     same place as the holes in `Plate.stl`, so you can import the two
+     together to check.
+   * `PillarsUnderneath.stl` is a pillar for each mounting hole, for fixing
+     the PCB under that panel. They are 7.3mm long, which holds the PCB where
+     it would be under the keyboard's own plate, so the switches, keytops and
+     their free play all fit. They stand exactly where the plate's own
+     pillars are.
+   * `PillarsOnTop.stl` is a pillar for each mounting hole, for fixing the
+     PCB (or the mock PCB) on top of a plate. They are 4mm high
+     (`pillars.on_top_height`, "On top pillar height" on the designer's Case
+     tab). A Pico soldered on the back of the PCB stands about 4.2mm proud of
+     it, so with 4mm pillars it would press on the plate: make them 4.5mm or
+     more, or cut a hole in the plate under the Pico. The designer warns
+     about this.
+
+   All the pillars are tubes as wide as the keyboard's standoffs (5mm), with
+   a 1.8mm pilot hole right through for M2 self tapping screws from either
+   end. Print them standing up. If you use the keyboard's own tray, leave
+   a way in for the USB cable, which comes out through its side.
 
 4. **Program it**, with either CircuitPython or MicroPython:
 
    * **CircuitPython**: copy `firmware\code.py` to the Pico as `code.py`,
      your layout as `layout.json`, and the `adafruit_hid` library into `lib`.
-   * **MicroPython** (1.23 or later, which can be a USB keyboard): install
-     the keyboard driver from micropython-lib, then copy the firmware and
-     your layout across:
-
-     ```
-     mpremote mip install usb-device-keyboard
-     mpremote cp firmware/micropython/main.py :main.py
-     mpremote cp layouts/switch_test.json :layout.json
-     ```
-
-     Reset the Pico and it becomes a keyboard. It keeps its USB serial port,
-     so mpremote and Thonny can still connect, and Ctrl-C stops it.
-     MicroPython has no `keypad` module, so this version scans the matrix
-     itself every 5ms, driving each row low in turn and reading the columns.
-     It debounces in the same way as the CircuitPython version (see
+   * **MicroPython**: see [Installing the MicroPython firmware](#installing-the-micropython-firmware)
+     below. MicroPython has no `keypad` module, so this version scans the
+     matrix itself every 5ms, driving each row low in turn and reading the
+     columns. It debounces in the same way as the CircuitPython version (see
      [Trying out long keys](#trying-out-long-keys)), using the same
      `firmware` settings from the layout.
+
+### Installing the MicroPython firmware
+
+A Pico running MicroPython doesn't appear as a USB drive (unlike
+CircuitPython), so files are copied to it with a program that talks to it
+over USB. These steps use [Thonny](https://thonny.org), copying everything
+by hand. If you prefer the command line, `mpremote` does the same job: see
+the end of this section.
+
+**1. Put MicroPython on the Pico.** It must be version **1.23 or later**,
+the first that can be a USB keyboard.
+
+* Download the `.uf2` file for your board from
+  [micropython.org/download](https://micropython.org/download/): `RPI_PICO`
+  for a Pico, `RPI_PICO_W` for a Pico W.
+* Hold down the Pico's **BOOTSEL** button while you plug it in. It appears
+  as a drive called `RPI-RP2`.
+* Copy the `.uf2` file onto that drive. The Pico restarts running
+  MicroPython, and the drive disappears.
+
+**2. Connect Thonny to it.** In Thonny, choose **Tools > Options >
+Interpreter**, pick **MicroPython (Raspberry Pi Pico)**, and choose its port
+(or leave it on "try to detect port automatically"). Then turn on **View >
+Files**. The Files pane shows "This computer" at the top and "Raspberry Pi
+Pico" underneath.
+
+**3. Copy the USB keyboard driver.** It is four files from
+[micropython-lib](https://github.com/micropython/micropython-lib/tree/master/micropython/usb),
+which all go in one folder on the Pico, `/lib/usb/device/`:
+
+| On the Pico | From micropython-lib |
+|---|---|
+| `/lib/usb/device/__init__.py` | `micropython/usb/usb-device/usb/device/__init__.py` |
+| `/lib/usb/device/core.py` | `micropython/usb/usb-device/usb/device/core.py` |
+| `/lib/usb/device/hid.py` | `micropython/usb/usb-device-hid/usb/device/hid.py` |
+| `/lib/usb/device/keyboard.py` | `micropython/usb/usb-device-keyboard/usb/device/keyboard.py` |
+
+* Get the files: download micropython-lib as a zip from GitHub (**Code >
+  Download ZIP**) and unzip it, or use a clone of it.
+* In the Pico's part of the Files pane, make the folders: right click,
+  **New directory...**, and make `lib`. Go into it, make `usb`, go into
+  that, and make `device`. (If `lib` is already there, just go into it.)
+* With the Pico's pane showing `/lib/usb/device`, find each of the four
+  files in the "This computer" pane, right click it, and choose **Upload
+  to /lib/usb/device**.
+
+**4. Copy the firmware and your layout.**
+
+* In the Pico's pane, go back to the top folder (`/`).
+* In "This computer", find `firmware\micropython\main.py` in this
+  repository, right click it, and choose **Upload to /**. MicroPython runs
+  `main.py` whenever the Pico starts.
+* Upload your layout file from `layouts\` the same way, for example
+  `numpad.json`. Then, in the Pico's pane, right click it, choose
+  **Rename...**, and call it `layout.json`, which is the name the firmware
+  looks for.
+
+The Pico should now hold:
+
+```
+/
+|-- main.py
+|-- layout.json
+`-- lib/
+    `-- usb/
+        `-- device/
+            |-- __init__.py
+            |-- core.py
+            |-- hid.py
+            `-- keyboard.py
+```
+
+**5. Start it.** Unplug the Pico and plug it in again (or press the reset
+button if your board has one). `main.py` starts, and the Pico appears to the
+computer as a USB keyboard. Open a text editor and press some keys.
+
+**Changing things later.** The Pico keeps its USB serial port while it is
+being a keyboard, so Thonny can still connect. Press Thonny's **Stop**
+button (or Ctrl-C in the Shell) to stop the keyboard program. Then you can
+copy files, for example a new `layout.json`. Unplug and plug in again to
+start the keyboard again. While the program is starting, the Pico briefly
+disconnects and reconnects as a keyboard, so Thonny may say the device has
+gone away. Press **Stop** to reconnect.
+
+**If it doesn't type.** In Thonny, press **Stop**, open `main.py` from the
+Pico, and run it with the green **Run** button so you can see any error in
+the Shell:
+
+* `ImportError: no module named 'usb.device'` means the driver files are
+  missing, or not in `/lib/usb/device/`.
+* `OSError: [Errno 2] ENOENT` means `layout.json` is missing, or has another
+  name.
+* `Unknown keycode ...` means a key in the layout has a keycode the firmware
+  doesn't know. Check it in the designer.
+* `AttributeError` about `USBDevice` means the MicroPython version is older
+  than 1.23. Type `import os; os.uname()` in the Shell to see the version.
+
+**Testing the keys.** Set `DEBUG = True` near the top of `main.py` (open it
+from the Pico in Thonny, change it, and save it) and run it. The Pico then
+doesn't become a keyboard: it prints each key's legend, row and column in
+the Shell as it goes down and up, which keys are down, and what a keyboard
+would send. A press at a matrix position with no key is shown too. Set it
+back to `False` to use the keyboard again.
+
+**With the command line instead.** `mpremote` (`pip install mpremote`) does
+steps 3 and 4 in one go, fetching the driver from the internet:
+
+```
+mpremote mip install usb-device-keyboard
+mpremote cp firmware/micropython/main.py :main.py
+mpremote cp layouts/numpad.json :layout.json
+```
 
 ## Parts list
 
@@ -147,6 +284,12 @@ its USB socket at the top edge. Every key has one switch in its middle.
   Shift 2.25u), so Q, A and Z sit 1.5, 1.75 and 2.25 units in, as they do
   on a normal keyboard. The number row, `'` and `/` are on the Fn layer.
   It has mounting holes in the top and bottom margins.
+* [layouts/numpad.json](layouts/numpad.json) is a small numeric keypad
+  for test prints: four rows of three 1u keys, not staggered, on the same
+  12mm pitch as the keyboards above. Digits 1 to 9 fill the top three rows
+  (1 2 3 at the top), and the bottom row is DEL (Delete), 0 and RET (Enter).
+  The case is 53 x 62 x 16.9mm, and its mounting holes are in the side
+  margins beside the rows. Also **File > New numeric keypad** in the designer.
 * [layouts/cyberdeck40.json](layouts/cyberdeck40.json) is a 45 key, 4 x 12
   grid (ortholinear) keyboard on an 11.5mm pitch, in a 149 x 60 x 16.9mm
   case. Two of its mounting holes are in the top margin, and two are in the
@@ -350,6 +493,17 @@ of those makes `KeycapLegends.stl`.
 The Pico's GND pins are not connected to anything. Nothing on the board
 needs ground, and the Pico joins its own GND pins together.
 
+### Key matrix
+
+This is how the switches are wired, using
+[layouts/cyberdeck40.json](layouts/cyberdeck40.json) as the example (other
+layouts use different pins: see the layout's `matrix` section). The rows are
+outputs and the columns are inputs, pulled up inside the Pico. The firmware
+drives one row low at a time and reads the columns: a column that reads low
+means the key where that row and column cross is down.
+
+![Key matrix schematic](docs/key_matrix.svg)
+
 ### Having the boards made
 
 Every time `build_pcb.py` builds a board, [kicad/fabrication.py](kicad/fabrication.py)
@@ -480,6 +634,7 @@ in [common/keyboard_layout.py](common/keyboard_layout.py).
              "row_pins": [0, 1, 2, 3], "col_pins": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]},
   "mock_pcb": {"fence_height": 2.5, "fence_wall": 0.8, "body_clearance": 0.15,
                "grip": 0.0, "lead_in": 0.4},
+  "pillars": {"on_top_height": 4.0, "pilot_hole": 1.8},
   "firmware": {"debounce_scans": 2},
   "routing": {"enabled": true, "grid": 0.5, "track_width": 0.25, "clearance": 0.2,
               "edge_clearance": 0.5, "via_diameter": 0.6, "via_drill": 0.3,
@@ -536,3 +691,9 @@ in [common/keyboard_layout.py](common/keyboard_layout.py).
 underscore `_` is a gap and `_:0.5` is a half gap.
 
 Changing the key pitch spreads the keys out or pulls them in to match.
+
+## Licence
+
+This project is released under the [MIT License](LICENSE): you can use,
+copy, change and share it, including in your own keyboards and products, as
+long as the copyright notice and licence go with it.

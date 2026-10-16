@@ -1009,6 +1009,10 @@
     "via_cost": 8,
     "wrong_way_cost": 3
   },
+  "pillars": {
+    "on_top_height": 4.0,
+    "pilot_hole": 1.8
+  },
   "mock_pcb": {
     "fence_height": 2.5,
     "fence_wall": 0.8,

@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="710" viewBox="0 0 940 710" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13">
+<rect width="940" height="710" fill="#fff"/>
+<text x="20" y="30" font-size="18" font-weight="bold" fill="#222">Key matrix (4 rows x 12 columns, layouts/cyberdeck40.json)</text>
+<line x1="150" y1="100" x2="150" y2="560" stroke="#c0392b" stroke-width="2"/>
+<circle cx="150" cy="100" r="4" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="150" y="74" text-anchor="middle" font-weight="bold" fill="#c0392b">GP4</text>
+<text x="150" y="90" text-anchor="middle" fill="#c0392b">COL0</text>
+<line x1="300" y1="100" x2="300" y2="560" stroke="#c0392b" stroke-width="2"/>
+<circle cx="300" cy="100" r="4" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="300" y="74" text-anchor="middle" font-weight="bold" fill="#c0392b">GP5</text>
+<text x="300" y="90" text-anchor="middle" fill="#c0392b">COL1</text>
+<line x1="450" y1="100" x2="450" y2="560" stroke="#c0392b" stroke-width="2"/>
+<circle cx="450" cy="100" r="4" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="450" y="74" text-anchor="middle" font-weight="bold" fill="#c0392b">GP6</text>
+<text x="450" y="90" text-anchor="middle" fill="#c0392b">COL2</text>
+<line x1="750" y1="100" x2="750" y2="560" stroke="#c0392b" stroke-width="2"/>
+<circle cx="750" cy="100" r="4" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="750" y="74" text-anchor="middle" font-weight="bold" fill="#c0392b">GP15</text>
+<text x="750" y="90" text-anchor="middle" fill="#c0392b">COL11</text>
+<line x1="80" y1="210" x2="860" y2="210" stroke="#1f5fbf" stroke-width="2"/>
+<circle cx="80" cy="210" r="4" fill="#fff" stroke="#1f5fbf" stroke-width="2"/>
+<text x="70" y="206" text-anchor="end" font-weight="bold" fill="#1f5fbf">GP0</text>
+<text x="70" y="222" text-anchor="end" fill="#1f5fbf">ROW0</text>
+<line x1="80" y1="320" x2="860" y2="320" stroke="#1f5fbf" stroke-width="2"/>
+<circle cx="80" cy="320" r="4" fill="#fff" stroke="#1f5fbf" stroke-width="2"/>
+<text x="70" y="316" text-anchor="end" font-weight="bold" fill="#1f5fbf">GP1</text>
+<text x="70" y="332" text-anchor="end" fill="#1f5fbf">ROW1</text>
+<line x1="80" y1="430" x2="860" y2="430" stroke="#1f5fbf" stroke-width="2"/>
+<circle cx="80" cy="430" r="4" fill="#fff" stroke="#1f5fbf" stroke-width="2"/>
+<text x="70" y="426" text-anchor="end" font-weight="bold" fill="#1f5fbf">GP2</text>
+<text x="70" y="442" text-anchor="end" fill="#1f5fbf">ROW2</text>
+<line x1="80" y1="540" x2="860" y2="540" stroke="#1f5fbf" stroke-width="2"/>
+<circle cx="80" cy="540" r="4" fill="#fff" stroke="#1f5fbf" stroke-width="2"/>
+<text x="70" y="536" text-anchor="end" font-weight="bold" fill="#1f5fbf">GP3</text>
+<text x="70" y="552" text-anchor="end" fill="#1f5fbf">ROW3</text>
+<rect x="621.0" y="202" width="68" height="16" fill="#fff"/>
+<text x="655.0" y="215" text-anchor="middle" font-size="16" fill="#222">. . .</text>
+<rect x="621.0" y="312" width="68" height="16" fill="#fff"/>
+<text x="655.0" y="325" text-anchor="middle" font-size="16" fill="#222">. . .</text>
+<rect x="621.0" y="422" width="68" height="16" fill="#fff"/>
+<text x="655.0" y="435" text-anchor="middle" font-size="16" fill="#222">. . .</text>
+<rect x="621.0" y="532" width="68" height="16" fill="#fff"/>
+<text x="655.0" y="545" text-anchor="middle" font-size="16" fill="#222">. . .</text>
+<text x="655.0" y="82" text-anchor="middle" fill="#c0392b">COL3 to COL10</text>
+<text x="655.0" y="98" text-anchor="middle" fill="#c0392b">GP7 to GP14</text>
+<circle cx="150" cy="145" r="3.5" fill="#c0392b"/>
+<path d="M150 145 H180" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="183" cy="145" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="217" cy="145" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="185" y1="143" x2="218" y2="132" stroke="#222" stroke-width="1.6"/>
+<path d="M201 137 V125 M194 125 H208" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="200" y="165" text-anchor="middle" fill="#222">Esc</text>
+<path d="M220 145 H250 V167" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M242 167 H258 L250 181 Z" fill="#222"/>
+<line x1="242" y1="181" x2="258" y2="181" stroke="#222" stroke-width="2"/>
+<line x1="250" y1="181" x2="250" y2="210" stroke="#222" stroke-width="1.6"/>
+<circle cx="250" cy="210" r="3.5" fill="#1f5fbf"/>
+<circle cx="150" cy="255" r="3.5" fill="#c0392b"/>
+<path d="M150 255 H180" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="183" cy="255" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="217" cy="255" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="185" y1="253" x2="218" y2="242" stroke="#222" stroke-width="1.6"/>
+<path d="M201 247 V235 M194 235 H208" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="200" y="275" text-anchor="middle" fill="#222">Tab</text>
+<path d="M220 255 H250 V277" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M242 277 H258 L250 291 Z" fill="#222"/>
+<line x1="242" y1="291" x2="258" y2="291" stroke="#222" stroke-width="2"/>
+<line x1="250" y1="291" x2="250" y2="320" stroke="#222" stroke-width="1.6"/>
+<circle cx="250" cy="320" r="3.5" fill="#1f5fbf"/>
+<circle cx="150" cy="365" r="3.5" fill="#c0392b"/>
+<path d="M150 365 H180" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="183" cy="365" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="217" cy="365" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="185" y1="363" x2="218" y2="352" stroke="#222" stroke-width="1.6"/>
+<path d="M201 357 V345 M194 345 H208" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="200" y="385" text-anchor="middle" fill="#222">Shft</text>
+<path d="M220 365 H250 V387" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M242 387 H258 L250 401 Z" fill="#222"/>
+<line x1="242" y1="401" x2="258" y2="401" stroke="#222" stroke-width="2"/>
+<line x1="250" y1="401" x2="250" y2="430" stroke="#222" stroke-width="1.6"/>
+<circle cx="250" cy="430" r="3.5" fill="#1f5fbf"/>
+<circle cx="150" cy="475" r="3.5" fill="#c0392b"/>
+<path d="M150 475 H180" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="183" cy="475" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="217" cy="475" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="185" y1="473" x2="218" y2="462" stroke="#222" stroke-width="1.6"/>
+<path d="M201 467 V455 M194 455 H208" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="200" y="495" text-anchor="middle" fill="#222">Ctl</text>
+<path d="M220 475 H250 V497" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M242 497 H258 L250 511 Z" fill="#222"/>
+<line x1="242" y1="511" x2="258" y2="511" stroke="#222" stroke-width="2"/>
+<line x1="250" y1="511" x2="250" y2="540" stroke="#222" stroke-width="1.6"/>
+<circle cx="250" cy="540" r="3.5" fill="#1f5fbf"/>
+<circle cx="300" cy="145" r="3.5" fill="#c0392b"/>
+<path d="M300 145 H330" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="333" cy="145" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="367" cy="145" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="335" y1="143" x2="368" y2="132" stroke="#222" stroke-width="1.6"/>
+<path d="M351 137 V125 M344 125 H358" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="350" y="165" text-anchor="middle" fill="#222">Q</text>
+<path d="M370 145 H400 V167" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M392 167 H408 L400 181 Z" fill="#222"/>
+<line x1="392" y1="181" x2="408" y2="181" stroke="#222" stroke-width="2"/>
+<line x1="400" y1="181" x2="400" y2="210" stroke="#222" stroke-width="1.6"/>
+<circle cx="400" cy="210" r="3.5" fill="#1f5fbf"/>
+<circle cx="300" cy="255" r="3.5" fill="#c0392b"/>
+<path d="M300 255 H330" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="333" cy="255" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="367" cy="255" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="335" y1="253" x2="368" y2="242" stroke="#222" stroke-width="1.6"/>
+<path d="M351 247 V235 M344 235 H358" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="350" y="275" text-anchor="middle" fill="#222">A</text>
+<path d="M370 255 H400 V277" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M392 277 H408 L400 291 Z" fill="#222"/>
+<line x1="392" y1="291" x2="408" y2="291" stroke="#222" stroke-width="2"/>
+<line x1="400" y1="291" x2="400" y2="320" stroke="#222" stroke-width="1.6"/>
+<circle cx="400" cy="320" r="3.5" fill="#1f5fbf"/>
+<circle cx="300" cy="365" r="3.5" fill="#c0392b"/>
+<path d="M300 365 H330" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="333" cy="365" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="367" cy="365" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="335" y1="363" x2="368" y2="352" stroke="#222" stroke-width="1.6"/>
+<path d="M351 357 V345 M344 345 H358" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="350" y="385" text-anchor="middle" fill="#222">Z</text>
+<path d="M370 365 H400 V387" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M392 387 H408 L400 401 Z" fill="#222"/>
+<line x1="392" y1="401" x2="408" y2="401" stroke="#222" stroke-width="2"/>
+<line x1="400" y1="401" x2="400" y2="430" stroke="#222" stroke-width="1.6"/>
+<circle cx="400" cy="430" r="3.5" fill="#1f5fbf"/>
+<circle cx="300" cy="475" r="3.5" fill="#c0392b"/>
+<path d="M300 475 H330" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="333" cy="475" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="367" cy="475" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="335" y1="473" x2="368" y2="462" stroke="#222" stroke-width="1.6"/>
+<path d="M351 467 V455 M344 455 H358" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="350" y="495" text-anchor="middle" fill="#222">Fn</text>
+<path d="M370 475 H400 V497" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M392 497 H408 L400 511 Z" fill="#222"/>
+<line x1="392" y1="511" x2="408" y2="511" stroke="#222" stroke-width="2"/>
+<line x1="400" y1="511" x2="400" y2="540" stroke="#222" stroke-width="1.6"/>
+<circle cx="400" cy="540" r="3.5" fill="#1f5fbf"/>
+<circle cx="450" cy="145" r="3.5" fill="#c0392b"/>
+<path d="M450 145 H480" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="483" cy="145" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="517" cy="145" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="485" y1="143" x2="518" y2="132" stroke="#222" stroke-width="1.6"/>
+<path d="M501 137 V125 M494 125 H508" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="500" y="165" text-anchor="middle" fill="#222">W</text>
+<path d="M520 145 H550 V167" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M542 167 H558 L550 181 Z" fill="#222"/>
+<line x1="542" y1="181" x2="558" y2="181" stroke="#222" stroke-width="2"/>
+<line x1="550" y1="181" x2="550" y2="210" stroke="#222" stroke-width="1.6"/>
+<circle cx="550" cy="210" r="3.5" fill="#1f5fbf"/>
+<circle cx="450" cy="255" r="3.5" fill="#c0392b"/>
+<path d="M450 255 H480" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="483" cy="255" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="517" cy="255" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="485" y1="253" x2="518" y2="242" stroke="#222" stroke-width="1.6"/>
+<path d="M501 247 V235 M494 235 H508" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="500" y="275" text-anchor="middle" fill="#222">S</text>
+<path d="M520 255 H550 V277" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M542 277 H558 L550 291 Z" fill="#222"/>
+<line x1="542" y1="291" x2="558" y2="291" stroke="#222" stroke-width="2"/>
+<line x1="550" y1="291" x2="550" y2="320" stroke="#222" stroke-width="1.6"/>
+<circle cx="550" cy="320" r="3.5" fill="#1f5fbf"/>
+<circle cx="450" cy="365" r="3.5" fill="#c0392b"/>
+<path d="M450 365 H480" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="483" cy="365" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="517" cy="365" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="485" y1="363" x2="518" y2="352" stroke="#222" stroke-width="1.6"/>
+<path d="M501 357 V345 M494 345 H508" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="500" y="385" text-anchor="middle" fill="#222">X</text>
+<path d="M520 365 H550 V387" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M542 387 H558 L550 401 Z" fill="#222"/>
+<line x1="542" y1="401" x2="558" y2="401" stroke="#222" stroke-width="2"/>
+<line x1="550" y1="401" x2="550" y2="430" stroke="#222" stroke-width="1.6"/>
+<circle cx="550" cy="430" r="3.5" fill="#1f5fbf"/>
+<circle cx="450" cy="475" r="3.5" fill="#c0392b"/>
+<path d="M450 475 H480" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="483" cy="475" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="517" cy="475" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="485" y1="473" x2="518" y2="462" stroke="#222" stroke-width="1.6"/>
+<path d="M501 467 V455 M494 455 H508" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="500" y="495" text-anchor="middle" fill="#222">Gui</text>
+<path d="M520 475 H550 V497" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M542 497 H558 L550 511 Z" fill="#222"/>
+<line x1="542" y1="511" x2="558" y2="511" stroke="#222" stroke-width="2"/>
+<line x1="550" y1="511" x2="550" y2="540" stroke="#222" stroke-width="1.6"/>
+<circle cx="550" cy="540" r="3.5" fill="#1f5fbf"/>
+<circle cx="750" cy="145" r="3.5" fill="#c0392b"/>
+<path d="M750 145 H780" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="783" cy="145" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="817" cy="145" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="785" y1="143" x2="818" y2="132" stroke="#222" stroke-width="1.6"/>
+<path d="M801 137 V125 M794 125 H808" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="800" y="165" text-anchor="middle" fill="#222">Bksp</text>
+<path d="M820 145 H850 V167" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M842 167 H858 L850 181 Z" fill="#222"/>
+<line x1="842" y1="181" x2="858" y2="181" stroke="#222" stroke-width="2"/>
+<line x1="850" y1="181" x2="850" y2="210" stroke="#222" stroke-width="1.6"/>
+<circle cx="850" cy="210" r="3.5" fill="#1f5fbf"/>
+<circle cx="750" cy="255" r="3.5" fill="#c0392b"/>
+<path d="M750 255 H780" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="783" cy="255" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="817" cy="255" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="785" y1="253" x2="818" y2="242" stroke="#222" stroke-width="1.6"/>
+<path d="M801 247 V235 M794 235 H808" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="800" y="275" text-anchor="middle" fill="#222">Ent</text>
+<path d="M820 255 H850 V277" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M842 277 H858 L850 291 Z" fill="#222"/>
+<line x1="842" y1="291" x2="858" y2="291" stroke="#222" stroke-width="2"/>
+<line x1="850" y1="291" x2="850" y2="320" stroke="#222" stroke-width="1.6"/>
+<circle cx="850" cy="320" r="3.5" fill="#1f5fbf"/>
+<circle cx="750" cy="365" r="3.5" fill="#c0392b"/>
+<path d="M750 365 H780" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="783" cy="365" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="817" cy="365" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="785" y1="363" x2="818" y2="352" stroke="#222" stroke-width="1.6"/>
+<path d="M801 357 V345 M794 345 H808" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="800" y="385" text-anchor="middle" fill="#222">'</text>
+<path d="M820 365 H850 V387" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M842 387 H858 L850 401 Z" fill="#222"/>
+<line x1="842" y1="401" x2="858" y2="401" stroke="#222" stroke-width="2"/>
+<line x1="850" y1="401" x2="850" y2="430" stroke="#222" stroke-width="1.6"/>
+<circle cx="850" cy="430" r="3.5" fill="#1f5fbf"/>
+<circle cx="750" cy="475" r="3.5" fill="#c0392b"/>
+<path d="M750 475 H780" stroke="#222" stroke-width="1.6" fill="none"/>
+<circle cx="783" cy="475" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<circle cx="817" cy="475" r="3" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<line x1="785" y1="473" x2="818" y2="462" stroke="#222" stroke-width="1.6"/>
+<path d="M801 467 V455 M794 455 H808" stroke="#222" stroke-width="1.6" fill="none"/>
+<text x="800" y="495" text-anchor="middle" fill="#222">></text>
+<path d="M820 475 H850 V497" stroke="#222" stroke-width="1.6" fill="none"/>
+<path d="M842 497 H858 L850 511 Z" fill="#222"/>
+<line x1="842" y1="511" x2="858" y2="511" stroke="#222" stroke-width="2"/>
+<line x1="850" y1="511" x2="850" y2="540" stroke="#222" stroke-width="1.6"/>
+<circle cx="850" cy="540" r="3.5" fill="#1f5fbf"/>
+<text x="20" y="595" fill="#222"><tspan font-weight="bold" fill="#1f5fbf">Rows (outputs):</tspan> all held high; the firmware drives one row low at a time.</text>
+<text x="20" y="614" fill="#222"><tspan font-weight="bold" fill="#c0392b">Columns (inputs):</tspan> pulled up inside the Pico, so they read high unless a key pulls them low.</text>
+<text x="20" y="633" fill="#222"><tspan font-weight="bold" fill="#222">A pressed key</tspan> joins its column to its row through its diode (anode on the column side),</text>
+<text x="20" y="652" fill="#222"><tspan font-weight="bold" fill="#222"></tspan> so the column reads low only while that key's row is driven low: row + column = the key.</text>
+<text x="20" y="671" fill="#222"><tspan font-weight="bold" fill="#222">The diodes</tspan> stop current flowing back through other pressed keys, so there are no ghost keys.</text>
+</svg>

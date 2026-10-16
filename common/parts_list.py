@@ -44,6 +44,9 @@ PRINTS = [
 ]
 MOCK_PCB = ("MockPCB.stl", "Optional: printed stand-in for the PCB, for test builds.", "Any")
 GRIP_TEST = ("SwitchGripTest.stl", "Optional: finds the mock PCB fence grip that holds the switches best.", "Any")
+PILLARS_ON_TOP = ("PillarsOnTop.stl", "Optional: pillars to fix the PCB on top of a plate in another case.", "Any")
+PILLARS_UNDERNEATH = ("PillarsUnderneath.stl",
+                      "Optional: pillars to fix the PCB under a panel cut with Cutout.stl.", "Any")
 
 
 def output_dir(layout):
@@ -116,7 +119,7 @@ def parts_list(layout, volumes=None):
 
     legend = layout["case"]["legend"]
     prints = []
-    for name, description, colour in PRINTS + [MOCK_PCB, GRIP_TEST]:
+    for name, description, colour in PRINTS + [MOCK_PCB, GRIP_TEST, PILLARS_ON_TOP, PILLARS_UNDERNEATH]:
         if name == "KeycapLegends.stl" and legend != "inlay":
             continue
         qty = 1

@@ -146,6 +146,13 @@ DEFAULTS = {
         "via_cost": 8,            # how many grid steps a via is worth
         "wrong_way_cost": 3,      # cost of a vertical step on the front or horizontal on the back
     },
+    "pillars": {
+        # Pillars for fixing the PCB to another case, one per mounting hole
+        "on_top_height": 4.0,     # PCB on top of a plate: the gap under the PCB
+        "pilot_hole": 1.8,        # for M2 self tapping screws, right through
+        # (pillars for fixing the PCB under a panel are made the right length
+        # for the keytops: the gap between the plate and the PCB in the stack)
+    },
     "mock_pcb": {
         # The printed stand-in for the PCB has a fence round each switch
         "fence_height": 2.5,      # the switch body is 3.5mm high
@@ -204,6 +211,7 @@ def normalise(layout):
     """Fill in anything missing from a layout with the defaults."""
     layout = _merge(DEFAULTS, layout)
     layout["firmware"].pop("release_hold_ms", None)   # no longer used
+    layout["case"].pop("cutout_clearance", None)       # no longer used
     for i, key in enumerate(layout["keys"]):
         key.setdefault("id", "K%d" % (i + 1))
         key.setdefault("label", "")
@@ -530,7 +538,7 @@ def add_key_rows(layout, rows, x0=0.0, y0=0.0):
                 x += entry[1] * g["pitch_x"]
                 continue
             if isinstance(entry, str):
-                label, code, w = entry, entry.upper(), 1.0
+                label, code, w = entry, guess_keycode(entry) or entry.upper(), 1.0
             else:
                 label, code, w = entry
             n += 1
@@ -716,6 +724,37 @@ def _staggered_layout(name, rows, fn):
         {"x": 1.5 * g["pitch_x"], "y": bottom_y, "d": d},
         {"x": 12 * g["pitch_x"], "y": bottom_y, "d": d},
     ]
+    auto_matrix(layout)
+    return layout
+
+
+def numpad_layout():
+    """A small numeric keypad for test prints: four rows of three 1u keys,
+    not staggered, on the same 12mm pitch as the main keyboards. Digits 1 to
+    9 in the top three rows (1 2 3 at the top), then DEL, 0 and RET (Enter).
+    The four mounting holes are in the wider side margins, beside the rows."""
+    layout = new_layout()
+    layout["name"] = "numpad"
+    layout["grid"]["pitch_x"] = 12.0
+    layout["grid"]["pitch_y"] = 12.0
+    layout["board"]["margin"].update({"top": 6.0, "bottom": 3.0, "left": 6.0, "right": 6.0})
+    add_key_rows(layout, [
+        ["1", "2", "3"],
+        ["4", "5", "6"],
+        ["7", "8", "9"],
+        [("DEL", "DELETE", 1), "0", ("RET", "ENTER", 1)],
+    ])
+    g = layout["grid"]
+    width = 3 * g["pitch_x"]
+    top = -layout["board"]["margin"]["top"]
+    # Pico on the back, centred, with its USB socket at the top edge
+    layout["controller"].update({"side": "back", "rotation": 0, "x": width / 2, "y": top + PICO_LENGTH / 2})
+    d = layout["case"]["hole_diameter"]
+    side = layout["board"]["margin"]["left"] / 2
+    layout["board"]["mounting_holes"] = [
+        {"x": x, "y": y, "d": d}
+        for x in (-side, width + side)
+        for y in (0.5 * g["pitch_y"], 3.5 * g["pitch_y"])]
     auto_matrix(layout)
     return layout
 
@@ -968,6 +1007,12 @@ def validate(layout):
             else:
                 continue
             break
+
+    if layout["controller"]["side"] == "back" and \
+            layout["pillars"]["on_top_height"] < PICO_THICKNESS + PICO_PART_HEIGHT + 0.3:
+        add("warning", "On top pillars of %.1fmm leave no room for the Pico under the PCB - it needs %.1fmm, "
+                       "or a hole in the plate under it" % (layout["pillars"]["on_top_height"],
+                                                             PICO_THICKNESS + PICO_PART_HEIGHT + 0.3))
 
     mock = layout["mock_pcb"]
     if mock["fence_height"] > switch_info(layout)["body_height"] - 0.3:
