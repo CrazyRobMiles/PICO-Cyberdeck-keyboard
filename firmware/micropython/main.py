@@ -24,7 +24,8 @@ them by hand with Thonny, or with mpremote:
 
 Then reset the Pico. It becomes a USB keyboard, and keeps its USB serial
 port so that Thonny and mpremote can still connect (press Stop, or Ctrl-C,
-to stop it).
+to stop it). If that doesn't work, hold Esc while plugging the Pico in: it
+then stops without starting the keyboard, and the files can be changed.
 
 Keycodes in the layout are the adafruit_hid Keycode names used by the
 designer, translated here into HID codes. A key with the keycode FN is a
@@ -201,6 +202,15 @@ def main():
 
     if DEBUG:
         debug(matrix, handler, labels, columns)
+        return
+
+    # Esc held while the Pico starts: stop here, so that Thonny can connect
+    # to change the files without the keyboard running
+    for _ in range(debounce_scans + 1):
+        matrix.scan()
+        time.sleep_ms(SCAN_MS)
+    if any(matrix.state[n] and entry[0] == HID_CODES["ESCAPE"] for n, entry in keymap.items()):
+        print("Esc held at startup: not starting the keyboard")
         return
 
     import usb.device

@@ -673,7 +673,7 @@
     {
       "id": "K42",
       "label": "v",
-      "keycode": "V",
+      "keycode": "DOWN_ARROW",
       "x": 126.0,
       "y": 42.0,
       "w": 1.0,

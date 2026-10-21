@@ -202,6 +202,10 @@ start the keyboard again. While the program is starting, the Pico briefly
 disconnects and reconnects as a keyboard, so Thonny may say the device has
 gone away. Press **Stop** to reconnect.
 
+If Thonny still can't stop it, hold down **Esc** while you plug the Pico in.
+`main.py` then stops without starting the keyboard, and Thonny can connect
+as normal.
+
 **If it doesn't type.** In Thonny, press **Stop**, open `main.py` from the
 Pico, and run it with the green **Run** button so you can see any error in
 the Shell:

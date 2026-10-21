@@ -581,6 +581,9 @@ _LABEL_KEYCODES = {
 
 
 def guess_keycode(label):
+    # a lower case v is the down arrow, to go with < > and ^
+    if label.strip() == "v":
+        return "DOWN_ARROW"
     up = label.strip().upper()
     if up in _LABEL_KEYCODES:
         return _LABEL_KEYCODES[up]

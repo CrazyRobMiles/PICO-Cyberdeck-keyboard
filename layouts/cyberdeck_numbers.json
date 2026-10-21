@@ -881,7 +881,7 @@
     {
       "id": "K55",
       "label": "v",
-      "keycode": "V",
+      "keycode": "DOWN_ARROW",
       "x": 126.0,
       "y": 54.0,
       "w": 1.0,
